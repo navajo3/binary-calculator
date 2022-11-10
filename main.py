@@ -1,4 +1,4 @@
-# 9:00PM 8/11/22
+# source code
 import time
 
 loop = 0
@@ -15,7 +15,6 @@ def main():
             print("Number is not binary")
             continue
     n1 = int(b1, 2)
-    print(n1) ## DEBUG REMOVE LATER
     while loop == 1:
         calc = input("Add or Subtract(A/S): ").lower()
         if calc == "a":
@@ -36,7 +35,6 @@ def main():
             print("Number is not binary")
             continue
     n2 = int(b2, 2)
-    print(n2) ## DEBUG REMOVE LATER
     if calc == "a":
         result = n1 + n2
         return 
@@ -81,7 +79,6 @@ def calc():
             print("Number is not binary")
             continue
     n3 = int(b3, 2)
-    print(n3) ## DEBUG REMOVE LATER
     if calc == "a":
         result = result + n3
         return
