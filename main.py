@@ -5,31 +5,41 @@ loop = 0
 result = 0
 
 def main():
-    global loop, result
+    global loop, result, bit
     while loop == 0:
+        bit = int(input("Byte format (1/16): "))
+        if bit == 1:
+            loop = 1
+            continue
+        elif bit == 16:
+            loop = 1
+            continue
+        else:
+            continue
+    while loop == 1:
         b1 = input("Number1: ")
         if (set(b1) | {'0', '1'}) == {'0', '1'}:
-            loop = 1
+            loop = 0
             continue
         else:
             print("Number is not binary")
             continue
     n1 = int(b1, 2)
-    while loop == 1:
+    while loop == 0:
         calc = input("Add or Subtract(A/S): ").lower()
         if calc == "a":
-            loop = 0
+            loop = 1
             continue
         elif calc == "s":
-            loop = 0 
+            loop = 1 
             continue
         else:
             print("Not valid input")
             continue
-    while loop == 0:
+    while loop == 1:
         b2 = input("Number2: ")
         if (set(b2) | {'0', '1'}) == {'0', '1'}:
-            loop = 1
+            loop = 0
             continue
         else:
             print("Number is not binary")
@@ -52,28 +62,36 @@ def extra():
     if ce == "c":
         return
     elif ce == "e":
-        result = format(result ,"b")
-        print("Your number in binary is: ", result)
-        time.sleep(2)
-        exit()
+        result = int(format(result ,"b"))
+        if bit == 1:
+            '{:08b}'.format(result)       # still not working
+        elif bit == 16:
+            '{:0128b}'.format(result)
+        else:
+            print("Code malfunction: Invalid bit value. Blame the programmer.")
+            time.sleep(2)
+            exit()
+    print("Your number in binary is: ", result)
+    time.sleep(2)
+    exit()
 
 def calc():
     global loop, result
-    while loop == 1:
+    while loop == 0:
         calc = input("Add or Subtract(A/S): ").lower()
         if calc == "a":
-            loop = 0
+            loop = 1
             continue
         elif calc == "s":
-            loop = 0
+            loop = 1
             continue
         else:
             print("Not valid input")
             continue
-    while loop == 0:
+    while loop == 1:
         b3 = input("Number: ")
         if (set(b3) | {'0', '1'}) == {'0', '1'}:
-            loop = 1
+            loop = 0
             continue
         else:
             print("Number is not binary")
@@ -89,3 +107,9 @@ def calc():
         print("Code malfunction: Invalid calculation value. Blame the programmer.")
         time.sleep(2)
         exit()
+
+main()
+
+while loop == 0:
+    extra()   
+    calc()
