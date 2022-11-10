@@ -1,9 +1,6 @@
 # 9:00PM 8/11/22
 import time
 
-exemption = [0, 1]
-
-running = 1
 loop = 0
 result = 0
 
@@ -95,9 +92,3 @@ def calc():
         print("Code malfunction: Invalid calculation value. Blame the programmer.")
         time.sleep(2)
         exit()
-
-
-main()
-while running == 1:
-    extra()
-    calc()
