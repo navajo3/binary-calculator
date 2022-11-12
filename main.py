@@ -1,6 +1,8 @@
 # source code
 import time
 
+import bytefunc
+
 loop = 0
 result = 0
 
@@ -62,15 +64,10 @@ def extra():
     if ce == "c":
         return
     elif ce == "e":
-        result = int(format(result ,"b"))
-        if bit == 1:
-            '{:08b}'.format(result)       # still not working
-        elif bit == 16:
-            '{:0128b}'.format(result)
-        else:
-            print("Code malfunction: Invalid bit value. Blame the programmer.")
-            time.sleep(2)
-            exit()
+        bytefunc.byte()
+        print(result)
+        time.sleep(2)
+        exit()
     print("Your number in binary is: ", result)
     time.sleep(2)
     exit()
