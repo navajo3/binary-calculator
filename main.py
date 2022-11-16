@@ -1,6 +1,5 @@
 # source code
 import time
-
 import bytefunc
 
 loop = 0
@@ -64,8 +63,7 @@ def extra():
     if ce == "c":
         return
     elif ce == "e":
-        bytefunc.byte()
-        print(result)
+        bytefunc.byte(bit, result)
         time.sleep(2)
         exit()
     print("Your number in binary is: ", result)
